@@ -27,4 +27,6 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
+
+  console.log($("#audio")[0].play());
 })
