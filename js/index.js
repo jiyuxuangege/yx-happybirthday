@@ -49,6 +49,7 @@ $(function() {
     });
     wx.ready(function(){
       audio.play()
+      audio[[0]].play()
     })
   };
   autoPlayVideo();
