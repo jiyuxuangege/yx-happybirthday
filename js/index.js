@@ -37,23 +37,6 @@ $(function() {
   //   }
   //   audioAutoPlay()
   // });
-  let bgAudio = document.getElementById('audio')
-  bgAudio.play();
-  function autoPlayVideo(){
-    wx.config({
-        debug:false,
-        appId:"",
-        timestamp:1,
-        nonceStr:"",
-        signature:"",
-        jsApiList:[]
-    });
-    wx.ready(function(){
-      // audio.play()
-      bgAudio.play()
-    })
-  };
-  autoPlayVideo();
   // 解决iOS禁止自动播放音频
 // 微信自动播放音频
   
