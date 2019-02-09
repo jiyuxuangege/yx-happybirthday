@@ -54,4 +54,9 @@ $(function() {
   };
   autoPlayVideo();
 
+  $('html').one('touchstart',function(){
+    audio.play();
+    audio[[0]].play()
+  });
+
 })
