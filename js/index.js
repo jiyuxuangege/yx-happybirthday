@@ -27,6 +27,16 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
+  var audio = $('audio')[0];
+  audio.play()
 
-  console.log($("#audio")[0].play());
+  // $('document').on('touchstart', function () {
+  //   function audioAutoPlay() {
+  //     var audio = document.getElementById('audio');;
+  //     audio.play();
+  //   }
+  //   audioAutoPlay()
+  // });
+
+
 })

@@ -20,6 +20,9 @@ svg {
   transform: scale(3)
 }
 
+audio {
+  display: none;
+}
 /* ============================================== Candle
 */
 .velas {
