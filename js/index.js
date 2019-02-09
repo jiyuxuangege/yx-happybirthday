@@ -53,7 +53,7 @@ $(function() {
       bgAudio.play()
     })
   };
-  autoPlayVideo();
+  // autoPlayVideo();
   // 解决iOS禁止自动播放音频
 // 微信自动播放音频
   
