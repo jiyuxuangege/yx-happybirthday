@@ -27,8 +27,8 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
-  var audio = $('audio');
-  audio[[0]].play()
+  // var audio = $('audio');
+  // audio[[0]].play()
 
   // $('document').on('touchstart', function () {
   //   function audioAutoPlay() {
@@ -38,25 +38,34 @@ $(function() {
   //   audioAutoPlay()
   // });
 
-  function autoPlayVideo(){
-    wx.config({
-        debug:false,
-        appId:"",
-        timestamp:1,
-        nonceStr:"",
-        signature:"",
-        jsApiList:[]
-    });
-    wx.ready(function(){
-      audio.play()
-      audio[[0]].play()
-    })
-  };
-  autoPlayVideo();
-
-  $('html').one('touchstart',function(){
-    audio.play();
-    audio[[0]].play()
-  });
+  // function autoPlayVideo(){
+  //   wx.config({
+  //       debug:false,
+  //       appId:"",
+  //       timestamp:1,
+  //       nonceStr:"",
+  //       signature:"",
+  //       jsApiList:[]
+  //   });
+  //   wx.ready(function(){
+  //     // audio.play()
+  //     audio[[0]].play()
+  //   })
+  // };
+  // autoPlayVideo();
+  // 解决iOS禁止自动播放音频
+// 微信自动播放音频
+  let bgAudio = document.getElementById('audio')
+  bgAudio.play();
+  document.addEventListener("WeixinJSBridgeReady",function () {
+      bgAudio.play();
+  }, false);
+  // 其他应用在click/touch时触发播放
+  document.addEventListener('click', function () {
+      bgAudio.play()
+  })  
+  document.addEventListener('touchstart', function () {
+      bgAudio.play()
+  })
 
 })
