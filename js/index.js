@@ -27,8 +27,8 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
-  var audio = $('audio')[0];
-  audio.play()
+  var audio = $('audio');
+  audio[[0]].play()
 
   // $('document').on('touchstart', function () {
   //   function audioAutoPlay() {
@@ -38,5 +38,19 @@ $(function() {
   //   audioAutoPlay()
   // });
 
+  function autoPlayVideo(){
+    wx.config({
+        debug:false,
+        appId:"",
+        timestamp:1,
+        nonceStr:"",
+        signature:"",
+        jsApiList:[]
+    });
+    wx.ready(function(){
+      audio.play()
+    })
+  };
+  autoPlayVideo();
 
 })
