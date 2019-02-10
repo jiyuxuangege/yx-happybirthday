@@ -49,5 +49,13 @@ $(function() {
     document.addEventListener("touchstart", play, false);
     document.addEventListener("click", play, false);
   }
-  audioAutoPlay();
+  // audioAutoPlay();
+
+  $("#btn").click(function(e) {
+    var audio = $('audio')[0];
+    audio.play();
+    $(this).hide()
+    $('.box').show()
+    
+  })
 })
