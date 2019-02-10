@@ -40,9 +40,9 @@ $(function() {
   // 解决iOS禁止自动播放音频
 // 微信自动播放音频
   
-  // document.addEventListener("WeixinJSBridgeReady",function () {
-  //     bgAudio.play();
-  // }, false);
+  document.addEventListener("WeixinJSBridgeReady",function () {
+      bgAudio.play();
+  }, false);
   // 其他应用在click/touch时触发播放
   document.addEventListener('click', function () {
       bgAudio.play()
