@@ -29,13 +29,14 @@ $(function() {
   }, 1000)
   // 其他应用在click/touch时触发播放
 
-  function audioAutoPlay(id){
-    // var audio = document.getElementById(id);
+  function audioAutoPlay(){
 
     var audio = $('audio')[0];
     var play = function() {
+        if (audio.readyState === 1) {
+          audio.play();
+        }
         audio.play();
-        // document.removeEventListener("touchstart", play, false);
     };
     
     audio.play();
@@ -48,5 +49,5 @@ $(function() {
     document.addEventListener("touchstart", play, false);
     document.addEventListener("click", play, false);
   }
-  audioAutoPlay('audio');
+  audioAutoPlay();
 })
