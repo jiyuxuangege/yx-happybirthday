@@ -29,28 +29,6 @@ $(function() {
   }, 1000)
   // 其他应用在click/touch时触发播放
 
-  function audioAutoPlay(){
-
-    var audio = $('audio')[0];
-    var play = function() {
-        if (audio.readyState === 1) {
-          audio.play();
-        }
-        audio.play();
-    };
-    
-    audio.play();
-
-    //weixin
-    document.addEventListener("WeixinJSBridgeReady", play, false);
-    //yixin
-    document.addEventListener('YixinJSBridgeReady', play, false);
-
-    document.addEventListener("touchstart", play, false);
-    document.addEventListener("click", play, false);
-  }
-  // audioAutoPlay();
-
   $("#btn").click(function(e) {
     var audio = $('audio')[0];
     audio.play();

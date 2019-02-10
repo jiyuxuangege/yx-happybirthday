@@ -190,6 +190,27 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <script src='./js/jquery.js'></script>
+<script>
+
+function audioAutoPlay(){
+
+var audio = $('audio')[0];
+var play = function() {
+    audio.play();
+}
+
+audio.play();
+
+//weixin
+document.addEventListener("WeixinJSBridgeReady", play, false);
+//yixin
+document.addEventListener('YixinJSBridgeReady', play, false);
+
+document.addEventListener("touchstart", play, false);
+document.addEventListener("click", play, false);
+}
+audioAutoPlay();
+</script>
 <script src="./js/index.js?#1.12"></script>
 
 </body>
