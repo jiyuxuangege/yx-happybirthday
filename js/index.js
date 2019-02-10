@@ -40,9 +40,9 @@ $(function() {
   // 解决iOS禁止自动播放音频
 // 微信自动播放音频
   
-  document.addEventListener("WeixinJSBridgeReady",function () {
-      bgAudio.play();
-  }, false);
+  // document.addEventListener("WeixinJSBridgeReady",function () {
+  //     bgAudio.play();
+  // }, false);
   // 其他应用在click/touch时触发播放
   document.addEventListener('click', function () {
       bgAudio.play()
@@ -51,5 +51,27 @@ $(function() {
       bgAudio.play()
   })
 
+  function audioAutoPlay(id){
+    var audio = document.getElementById(id);
 
+    var play = function() {
+        document.removeEventListener("WeixinJSBridgeReady", play);
+        document.removeEventListener("YixinJSBridgeReady", play);
+
+        audio.play();
+        audio.pause();
+        // document.removeEventListener("touchstart", play, false);
+    };
+    
+    audio.play();
+    audio.pause();
+
+    //weixin
+    document.addEventListener("WeixinJSBridgeReady", play, false);
+    //yixin
+    document.addEventListener('YixinJSBridgeReady', play, false);
+
+    // document.addEventListener("touchstart", play, false);
+  }
+  audioAutoPlay('audio');
 })
