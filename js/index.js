@@ -39,9 +39,12 @@ $(function() {
     audio.play();
 
     //weixin
-    document.addEventListener("WeixinJSBridgeReady", play, false);
-    //yixin
-    document.addEventListener('YixinJSBridgeReady', play, false);
+    document.addEventListener("WeixinJSBridgeReady", function(){
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        network = e.err_msg.split(":")[1];  //结果在这里
+        play();
+    });
+    }, false);
 
     document.addEventListener("touchstart", play, false);
     document.addEventListener("click", play, false);
