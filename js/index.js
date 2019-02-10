@@ -27,37 +27,13 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
-  var audio = $('audio')[0];
-  // audio[[0]].play()
-
-  // $('document').on('touchstart', function () {
-  //   function audioAutoPlay() {
-  //     var audio = document.getElementById('audio');;
-  //     audio.play();
-  //   }
-  //   audioAutoPlay()
-  // });
-  // 解决iOS禁止自动播放音频
-// 微信自动播放音频
-  
-  // document.addEventListener("WeixinJSBridgeReady",function () {
-  //     bgAudio.play();
-  // }, false);
   // 其他应用在click/touch时触发播放
-  document.addEventListener('click', function () {
-    audio.play()
-  })  
-  document.addEventListener('touchstart', function () {
-    audio.play()
-  })
 
   function audioAutoPlay(id){
     // var audio = document.getElementById(id);
 
+    var audio = $('audio')[0];
     var play = function() {
-        document.removeEventListener("WeixinJSBridgeReady", play);
-        document.removeEventListener("YixinJSBridgeReady", play);
-
         audio.play();
         // document.removeEventListener("touchstart", play, false);
     };
@@ -69,7 +45,8 @@ $(function() {
     //yixin
     document.addEventListener('YixinJSBridgeReady', play, false);
 
-    // document.addEventListener("touchstart", play, false);
+    document.addEventListener("touchstart", play, false);
+    document.addEventListener("click", play, false);
   }
   audioAutoPlay('audio');
 })
