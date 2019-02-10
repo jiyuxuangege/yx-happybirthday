@@ -27,7 +27,7 @@ $(function() {
   setTimeout(function() {
     print(benediction2, benedDom2, 250)
   }, 1000)
-  // var audio = $('audio');
+  var audio = $('audio')[0];
   // audio[[0]].play()
 
   // $('document').on('touchstart', function () {
@@ -45,14 +45,14 @@ $(function() {
   // }, false);
   // 其他应用在click/touch时触发播放
   document.addEventListener('click', function () {
-      bgAudio.play()
+    audio.play()
   })  
   document.addEventListener('touchstart', function () {
-      bgAudio.play()
+    audio.play()
   })
 
   function audioAutoPlay(id){
-    var audio = document.getElementById(id);
+    // var audio = document.getElementById(id);
 
     var play = function() {
         document.removeEventListener("WeixinJSBridgeReady", play);
